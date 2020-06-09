@@ -2,11 +2,11 @@ const axios = require('axios');
 const chai = require('chai');
 const expect = chai.expect;
 
-const API_URL = 'http://ptsv2.com/t/fu807-1554722621/post';
+const BASE_API_URL = 'http://ptsv2.com/t/';
 
 async function makeGetRequest() {
   try {
-    return await axios.get(API_URL);
+    return await axios.get(BASE_API_URL + 'fu807-1554722621/post');
   } catch (error) {
     throw new Error('Something went wrong, check if API is responding')
   }
@@ -32,6 +32,6 @@ describe('A call to get user credentials', function () {
     });
     expect(response).to.have.property('username', 'automate');
     expect(response).to.have.property('password', 'everything');
-    expect(response).to.have.property('targetUrl', 'http://ptsv2.com/t/7ty82-1554722743/post');
+    expect(response).to.have.property('targetUrl', BASE_API_URL + '7ty82-1554722743/post');
   });
 });
